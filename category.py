@@ -6,7 +6,6 @@ class Category:
         self,
         name,
         id = "",
-        
         description = "",
         is_active = True,
     ):
@@ -14,6 +13,9 @@ class Category:
         self.name = name
         self.description = description
         self.is_active = is_active
+        
+        if len(self.name) > 255: 
+            raise ValueError("Nome contém mais que 255 caracteres.")
         
     def __str__(self):
         return f"{self.name} {self.description} {self.is_active}"
